@@ -21,6 +21,14 @@
     max-height: 15rem !important;
 }
 
+#ampm-div {
+    padding-left: 0px;
+}
+
+#ampm-select {
+    width: 50%;
+}
+
 #submit-btn {
     padding: 8px 50px !important;
     background-color: #12c270;
@@ -29,6 +37,7 @@
         background-color: #17774a;
     }
 }
+
 
 /* media query start here */
 @media (max-width: 992px){
@@ -41,10 +50,22 @@
     #hotel-booking-form {
         margin: 1rem 5rem 1rem 5rem;
     }
+
+    #ampm-div {
+        padding-left: 1rem;
+    }
+
+    #ampm-select {
+        width: 30%;
+    }
 }
 @media (max-width: 576px){
     #hotel-booking-form {
         margin: 1rem 2rem 1rem 2rem;
+    }
+
+    #ampm-select {
+        width: 40%;
     }
 }
 /* media query end here */

@@ -7,13 +7,12 @@
     <title>Form</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body>
     <section id="hotel-booking-form">
         <div class="container">
-            <form action="#" method="get" autocomplete="off">
+            <form action="#" id="my-form" method="get" autocomplete="off">
                 <div class="row mt-3">
                     <div class="col mt-3">
                         <h1 class="text-center fw-bold">Hotel Booking</h1>
@@ -25,59 +24,68 @@
                         <label for="" class="fw-bold mb-2">Name</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <input class="form-control is-valid" type="text" name="fname" id="fname">
+                                <input class="form-control" type="text" name="fname" id="fname">
                                 <small class="text-secondary">First Name</small>
+                                <div id="fname-error" class="text-danger mt-1"></div>
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control is-invalid" type="text" name="lname" id="lname">
+                                <input class="form-control" type="text" name="lname" id="lname">
                                 <small class="text-secondary">Last Name</small>
+                                <div id="lname-error" class="text-danger mt-1"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <label for="" class="fw-bold mb-2">E-mail <span class="text-danger fw-bold">*</span></label>
-                        <input class="form-control" type="text" name="fname" placeholder="ex: myname@example.com" required>
+                        <label for="email" class="fw-bold mb-2">E-mail <span
+                                class="text-danger fw-bold">*</span></label>
+                        <input class="form-control" type="text" id="email" name="email"
+                            placeholder="ex: myname@example.com" required>
                         <small class="text-secondary">example@example.com</small>
+                        <div id="email-error" class="text-danger mt-1"></div>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <label for="" class="fw-bold mb-2">Room Type</label>
-                        <select class="form-select">
-                            <option selected disabled>Please Select</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" id="room-select">
+                            <option value="default" selected disabled>Please Select</option>
+                            <option value="single">Single</option>
+                            <option value="separate">Separate</option>
+                            <option value="other">Other</option>
                         </select>
+                        <div id="room-error" class="text-danger mt-1"></div>
                     </div>
                     <div class="col-md-6">
-                        <label for="" class="fw-bold mb-2">Number of Guests <span class="text-danger">*</span></label>
-                        <input class="form-control" type="number" name="guests" placeholder="e.g., 23" required>
+                        <label for="guests" class="fw-bold mb-2">Number of Guests <span
+                                class="text-danger">*</span></label>
+                        <input class="form-control" type="number" id="guests" name="guests" placeholder="e.g., 23"
+                            required>
+                        <div id="guests-error" class="text-danger mt-1"></div>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <label for="" class="fw-bold mb-2">Arrival Date & Time <span
                             class="text-danger fw-bold">*</span></label>
                     <div class="col-md-6">
-                        <input class="form-control" type="date" name="arrival-date" required>
-                        <small class="text-secondary">Date</small>
+                        <input class="form-control" type="date" id="arrival-date" name="arrival-date" required>
+                        <small class="text-secondary">Select a date</small>
                     </div>
                     <div class="col-md-2">
-                        <input class="form-control" type="time" name="arrival-time" required>
+                        <input class="form-control" type="time" id="arrival-time" name="arrival-time" required>
                         <small class="text-secondary">Hour Minutes</small>
                     </div>
-                    <div class="col-md-2">
-                        <select class="form-select" required>
-                            <option selected>AM</option>
-                            <option value="1">PM</option>
+                    <div class="col-md-2" id="ampm-div">
+                        <select class="form-select ms-0" id="ampm-select" required>
+                            <option value="AM">AM</option>
+                            <option value="PM">PM</option>
                         </select>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <label for="" class="fw-bold mb-2">Departure Date <span class="text-danger fw-bold">*</span></label>
                     <div class="col-md-4">
-                        <select class="form-select" required>
-                            <option selected disabled>Please select a month</option>
+                        <select class="form-select" id="month-select" required>
+                            <option selected disabled value="default">Please select a month</option>
                             <option value="jan">January</option>
                             <option value="feb">February</option>
                             <option value="mar">March</option>
@@ -92,10 +100,11 @@
                             <option value="dec">December</option>
                         </select>
                         <small class="text-secondary">Month</small>
+                        <div id="month-error" class="text-danger mt-1"></div>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-select" required>
-                            <option selected disabled>Please select a day</option>
+                        <select class="form-select" id="day-select" required>
+                            <option selected disabled value="default">Please select a day</option>
                             <option value="mon">Monday</option>
                             <option value="tue">Tuesday</option>
                             <option value="wed">Wednesday</option>
@@ -105,15 +114,17 @@
                             <option value="sun">Sunday</option>
                         </select>
                         <small class="text-secondary">Day</small>
+                        <div id="day-error" class="text-danger mt-1"></div>
                     </div>
                     <div class="col-md-4">
-                        <select class="form-select" required>
-                            <option selected disabled>Please select a year</option>
+                        <select class="form-select" id="year-select" required>
+                            <option selected disabled value="default">Please select a year</option>
                             <option value="2025">2025</option>
                             <option value="2026">2026</option>
                             <option value="2027">2027</option>
                         </select>
                         <small class="text-secondary">Year</small>
+                        <div id="year-error" class="text-danger mt-1"></div>
                     </div>
                 </div>
                 <div class="row mt-4">
@@ -130,6 +141,7 @@
                             No Thanks! - I'll make my own way there
                         </label>
                     </div>
+                    <div id="pickup-error" class="text-danger mt-1"></div>
                 </div>
                 <div class="row mt-4">
                     <div class="col">
@@ -145,6 +157,8 @@
             </form>
         </div>
     </section>
+
+    <script src="assets/js/myScript.js"></script>
 </body>
 
 </html>
